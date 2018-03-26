@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/signup', to:'users#new'
 
   root'static_page#home'
 
@@ -18,6 +17,13 @@ Rails.application.routes.draw do
 
   get'/contact', to:'static_page#contact'
   # get '/contact'
+
+  get '/signup', to:'users#new'
+  post '/signup', to:'users#create'
+
+  resources:users
+
+  # user用のurlやmvc用のアクションを追加
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
